@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% autoescape true %}
+
+<body>
+	<form action="/?candidate={{ candidate }}" method="get">
+		Enter vote entry and click Submit:
+		<input type="text" name="candidate" value="" label="candidate">
+		<input type="submit" value="submit">
+	</form>
+
+	{% if not candidate %}
+	No vote entry input yet.
+	{% else %}
+	The vote is <b>{{ result }}</b>.
+
+	{% if result == "too close to call" %}
+	<p>Re-examine input <b>{{ candidate }}</b></p>.
+	{% endif %}
+
+	{% endif %}
+
+
+</body>
+</html>
+{% endautoescape %}
